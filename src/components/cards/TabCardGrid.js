@@ -13,6 +13,7 @@ import { ReactComponent as SvgDecoratorBlob2 } from "images/svg-decorator-blob-7
 import prescribedMed from 'images/medicine_ordering.avif'
 import medicalStore from 'images/medical_store.avif'
 import homeopathic from 'images/dibonil30ml.jpg'
+import beautiProducts from 'images/beauti-products.jpg'
 const HeaderRow = tw.div`flex justify-between items-center flex-col xl:flex-row`;
 const Header = tw(SectionHeading)``;
 const TabsControl = tw.div`flex flex-wrap bg-gray-200 px-2 py-2 rounded leading-none mt-12 xl:mt-0`;
@@ -90,8 +91,7 @@ export default ({
         url: "#"
       },
       {
-        imageSrc:
-          "https://images.unsplash.com/photo-1455619452474-d2be8b1e70cd?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=80",
+        imageSrc:beautiProducts,
         title: "Beauti Products",
         content: "All your beauti products",
         rating: "4.6",

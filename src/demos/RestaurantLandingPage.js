@@ -12,10 +12,14 @@ import DownloadApp from "components/cta/DownloadApp.js";
 import Footer from "components/footers/FiveColumnWithInputForm.js";
 
 import chefIconImageSrc from "images/chef-icon.svg";
+import storePic from "images/store.jpg"
 import drugDelhivery from 'images/drug-delivery_602838-525.avif'
 import medicineOrdering from 'images/medicine_ordering.avif'
+import pharmacist from 'images/pharmacist.png'
+import naturalMedicine from 'images/mortar.png'
 import celebrationIconImageSrc from "images/celebration-icon.svg";
 import shopIconImageSrc from "images/shop-icon.svg";
+import MiniCenteredFooter from "components/footers/MiniCenteredFooter";
 
 export default () => {
   const Subheading = tw.span`tracking-wider text-sm font-medium`;
@@ -81,15 +85,15 @@ export default () => {
             url: "https://google.com"
           },
           {
-            imageSrc: chefIconImageSrc,
+            imageSrc: pharmacist,
             title: "Licensed Pharmacists",
             description: "Get Your Medicine from Trusted Pharmacists",
-            url: "https://timerse.com"
+            url: pharmacist
           },
           {
-            imageSrc: celebrationIconImageSrc,
-            title: "Birthday Catering",
-            description: "Lorem ipsum donor amet siti ceali placeholder text",
+            imageSrc: naturalMedicine,
+            title: "Natural Medicine",
+            description: "Availability of Ayurvedic and Homeopathic medicine",
             url: "https://reddit.com"
           }
         ]}
@@ -117,7 +121,7 @@ export default () => {
         primaryButtonText="Order Now"
         primaryButtonUrl="https://order.now.com"
         imageInsideDiv={false}
-        imageSrc="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEzNzI2fQ&auto=format&fit=crop&w=768&q=80"
+        imageSrc={storePic}
         imageCss={Object.assign(tw`bg-cover`, imageCss)}
         imageContainerCss={tw`md:w-1/2 h-auto`}
         imageDecoratorBlob={true}
@@ -129,9 +133,9 @@ export default () => {
         heading={<>Customers <HighlightedText>Love Us.</HighlightedText></>}
       />
       <DownloadApp
-        text={<>People around you are ordering delicious meals using the <HighlightedTextInverse>Treact App.</HighlightedTextInverse></>}
+        text={<>People around you are ordering delicious meals using the <HighlightedTextInverse>MedKart App.</HighlightedTextInverse></>}
       />
-      <Footer />
+      <MiniCenteredFooter />
     </AnimationRevealPage>
   );
 }
