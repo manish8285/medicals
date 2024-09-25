@@ -72,8 +72,9 @@ export default ({ roundedHeaderButton = false, logoLink, links, className, colla
    */
   const defaultLinks = [
     <NavLinks key={1}>
-      <NavLink href="/#">About</NavLink>
-      <NavLink href="/#">Contact Us</NavLink>
+      <NavLink href="/">Home</NavLink>
+      <NavLink href="/about">About</NavLink>
+      <NavLink href="/contactus">Contact Us</NavLink>
       <NavLink href="/#" tw="lg:ml-12!">
         Have you store ?
       </NavLink>
@@ -87,7 +88,7 @@ export default ({ roundedHeaderButton = false, logoLink, links, className, colla
   const defaultLogoLink = (
     <LogoLink href="/">
       <img src={logo} alt="logo" />
-      MedKart
+      Medical Ji
     </LogoLink>
   );
 

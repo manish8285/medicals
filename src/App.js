@@ -1,6 +1,8 @@
 import React from "react";
 import GlobalStyles from 'styles/GlobalStyles';
 import { css } from "styled-components/macro"; //eslint-disable-line
+import { ToastContainer} from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 /*
  * This is the entry point component of this project. You can change the below exported default App component to any of
@@ -15,7 +17,7 @@ import { css } from "styled-components/macro"; //eslint-disable-line
  */
 
 /* Use AnimationRevealPage as a wrapper component for your pages if you are building a custom one yourself */
-// import AnimationRevealPage from "helpers/AnimationRevealPage.js";
+import AnimationRevealPage from "helpers/AnimationRevealPage.js";
 
 /*
  * Hero section is the top most section on the page. It contains the header as well.
@@ -95,34 +97,50 @@ import { css } from "styled-components/macro"; //eslint-disable-line
 // import SignupPage from "pages/Signup.js";
 // import PricingPage from "pages/Pricing.js";
 // import AboutUsPage from "pages/AboutUs.js";
-// import ContactUsPage from "pages/ContactUs.js";
-// import BlogIndexPage from "pages/BlogIndex.js";
-// import TermsOfServicePage from "pages/TermsOfService.js";
-// import PrivacyPolicyPage from "pages/PrivacyPolicy.js";
-
-import ComponentRenderer from "ComponentRenderer.js";
-import MainLandingPage from "MainLandingPage.js";
+import ContactUsPage from "pages/ContactUs.js";
+import BlogIndexPage from "pages/BlogIndex.js";
+import TermsOfServicePage from "pages/TermsOfService.js";
+import PrivacyPolicyPage from "pages/PrivacyPolicy.js";
 import ThankYouPage from "ThankYouPage.js";
 
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import RestaurantLandingPage from "demos/RestaurantLandingPage";
+import { BrowserRouter as Router, Routes, Route, Outlet } from "react-router-dom";
+import LandingPage from "pages/LandingPage";
+import AboutUs from "pages/AboutUs";
 
 export default function App() {
   // If you want to disable the animation just use the disabled `prop` like below on your page's component
   // return <AnimationRevealPage disabled>xxxxxxxxxx</AnimationRevealPage>;
 
+ const AppLayout =()=>{
+    return (<>
+    <AnimationRevealPage >
+    <Outlet />
+    </AnimationRevealPage >
+    </>)
+  
+  } 
 
   return (
     <>
       <GlobalStyles />
+      <ToastContainer />
       <Router>
-        <Routes>
-          <Route path="/components/:type/:subtype/:name" element={<ComponentRenderer />} />
-          <Route path="/components/:type/:name" element={<ComponentRenderer />} />
+      {/* <AnimationRevealPage> */}
+        <Routes >
+          <Route element={<AppLayout />}>
+          <Route path="/about" element={<AboutUs/>} />
           <Route path="/thank-you" element={<ThankYouPage />} />
-          <Route path="/" element={<RestaurantLandingPage />} />
-        </Routes>
+          <Route path="/contactus" element={<ContactUsPage />} />
+          <Route path="/privacy-policy" element={<PrivacyPolicyPage />} />
+          <Route path="/terms-conditions" element={<TermsOfServicePage />} />
+          <Route path="/blogs" element={<BlogIndexPage />} />
+          <Route path="/" element={<LandingPage />} />
+
+          </Route>
+        </Routes >
+        {/* </AnimationRevealPage> */}
       </Router>
+      
     </>
   );
 }

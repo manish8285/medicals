@@ -1,7 +1,7 @@
+
 import React from "react";
 import tw from "twin.macro";
 import { css } from "styled-components/macro"; //eslint-disable-line
-import AnimationRevealPage from "helpers/AnimationRevealPage.js";
 import Hero from "components/hero/TwoColumnWithVideo.js";
 import Features from "components/features/ThreeColSimple.js";
 import MainFeature from "components/features/TwoColWithButton.js";
@@ -9,17 +9,14 @@ import MainFeature2 from "components/features/TwoColSingleFeatureWithStats2.js";
 import TabGrid from "components/cards/TabCardGrid.js";
 import Testimonial from "components/testimonials/ThreeColumnWithProfileImage.js";
 import DownloadApp from "components/cta/DownloadApp.js";
-import Footer from "components/footers/FiveColumnWithInputForm.js";
 
-import chefIconImageSrc from "images/chef-icon.svg";
 import storePic from "images/store.jpg"
 import drugDelhivery from 'images/drug-delivery_602838-525.avif'
 import medicineOrdering from 'images/medicine_ordering.avif'
 import pharmacist from 'images/pharmacist.png'
 import naturalMedicine from 'images/mortar.png'
-import celebrationIconImageSrc from "images/celebration-icon.svg";
 import shopIconImageSrc from "images/shop-icon.svg";
-import MiniCenteredFooter from "components/footers/MiniCenteredFooter";
+
 
 export default () => {
   const Subheading = tw.span`tracking-wider text-sm font-medium`;
@@ -28,7 +25,7 @@ export default () => {
   const Description = tw.span`inline-block mt-8`;
   const imageCss = tw`rounded-4xl`;
   return (
-    <AnimationRevealPage>
+    <>
       <Hero
         heading={<>Get Your Medicine<HighlightedText>From Nearby Store.</HighlightedText></>}
         description="Getting medicine is now easier than ever! Simply upload your prescription, and the nearest store will quickly deliver your medicine right to your door—no need to go from store to store."
@@ -133,9 +130,8 @@ export default () => {
         heading={<>Customers <HighlightedText>Love Us.</HighlightedText></>}
       />
       <DownloadApp
-        text={<>People around you are ordering delicious meals using the <HighlightedTextInverse>MedKart App.</HighlightedTextInverse></>}
+        text={<>People around you are ordering medicine with dicount using the <HighlightedTextInverse>MedicalJi App.</HighlightedTextInverse></>}
       />
-      <MiniCenteredFooter />
-    </AnimationRevealPage>
+    </>
   );
 }

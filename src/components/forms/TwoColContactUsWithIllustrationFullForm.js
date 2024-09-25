@@ -1,10 +1,12 @@
-import React from "react";
+import React, { useState } from "react";
 import tw from "twin.macro";
 import styled from "styled-components";
 import { css } from "styled-components/macro"; //eslint-disable-line
 import { SectionHeading, Subheading as SubheadingBase } from "components/misc/Headings.js";
 import { PrimaryButton as PrimaryButtonBase } from "components/misc/Buttons.js";
 import EmailIllustrationSrc from "images/email-illustration.svg";
+import { sendContactForm } from "api/contact";
+import { toast } from "react-toastify";
 
 const Container = tw.div`relative`;
 const TwoColumn = tw.div`flex flex-col md:flex-row justify-between max-w-screen-xl mx-auto py-20 md:py-24`;
@@ -36,12 +38,35 @@ const SubmitButton = tw(PrimaryButtonBase)`inline-block mt-8`
 export default ({
   subheading = "Contact Us",
   heading = <>Feel free to <span tw="text-primary-500">get in touch</span><wbr/> with us.</>,
-  description = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+  description = "",
   submitButtonText = "Send",
   formAction = "#",
   formMethod = "get",
   textOnLeft = true,
 }) => {
+
+  const [loader,setLoader]=useState(false);
+  const [contactData,setContactData] = useState({
+    email:'',
+    phoneNumber:'',
+    name:'',
+    subject:'',
+    message:'',
+  });
+  const sendEmail=async()=>{
+    setLoader(true);
+    try{
+      await sendContactForm(contactData);
+      toast("Your query received")
+      toast({message:"your query received successfully !!! ",type:"success"})
+
+    }catch(error){
+      console.log('something went wrong')
+      console.log(error)
+      toast({message:"oops something went wrong !!! ",type:"error"})
+    }
+    setLoader(false);
+  }
   // The textOnLeft boolean prop can be used to display either the text on left or right side of the image.
 
   return (
@@ -56,11 +81,13 @@ export default ({
             <Heading>{heading}</Heading>
             {description && <Description>{description}</Description>}
             <Form action={formAction} method={formMethod}>
-              <Input type="email" name="email" placeholder="Your Email Address" />
-              <Input type="text" name="name" placeholder="Full Name" />
-              <Input type="text" name="subject" placeholder="Subject" />
-              <Textarea name="message" placeholder="Your Message Here" />
-              <SubmitButton type="submit">{submitButtonText}</SubmitButton>
+              <Input value={contactData.email} onChange={(event)=>setContactData({...contactData,'email':event.target.value})} type="email" name="email" placeholder="Your Email Address" />
+              <Input value={contactData.phoneNumber} onChange={(event)=>setContactData({...contactData,'phoneNumber':event.target.value})} type="text" name="phoneNumber" placeholder="Phone Number" />
+              <Input value={contactData.name} onChange={(event)=>setContactData({...contactData,'name':event.target.value})} type="text" name="name" placeholder="Full Name" />
+              <Input value={contactData.subject} onChange={(event)=>setContactData({...contactData,'subject':event.target.value})} type="text" name="subject" placeholder="Subject" />
+              <Textarea value={contactData.message} onChange={(event)=>setContactData({...contactData,'message':event.target.value})} name="message" placeholder="Your Message Here" />
+
+              <SubmitButton onClick={sendEmail} disabled={loader} type="submit">{loader?"Sending ...":submitButtonText}</SubmitButton>
             </Form>
           </TextContent>
         </TextColumn>

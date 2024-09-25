@@ -1,10 +1,14 @@
 import React from "react";
 import tw from "twin.macro";
+import { css } from "styled-components/macro"; //eslint-disable-line
+import Header from "components/headers/light"
+import MiniCenteredFooter from "components/footers/MiniCenteredFooter";
 
 /* framer-motion and useInView here are used to animate the sections in when we reach them in the viewport
  */
 import { motion } from "framer-motion";
 import useInView from "helpers/useInView";
+
 
 const StyledDiv = tw.div`font-display min-h-screen text-secondary-500 p-8 overflow-hidden`;
 function AnimationReveal({ disabled, children }) {
@@ -53,6 +57,9 @@ function AnimatedSlideInComponent({ direction = "left", offset = 30, children })
 
 export default props => (
   <StyledDiv className="App">
+    <Header />
+
     <AnimationReveal {...props} />
+    <MiniCenteredFooter />
   </StyledDiv>
 );

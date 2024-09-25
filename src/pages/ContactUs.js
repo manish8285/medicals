@@ -1,9 +1,6 @@
 import React from "react";
-import AnimationRevealPage from "helpers/AnimationRevealPage.js";
 import tw from "twin.macro";
 import { css } from "styled-components/macro"; //eslint-disable-line
-import Header from "components/headers/light.js";
-import Footer from "components/footers/FiveColumnWithInputForm.js";
 import ContactUsForm from "components/forms/TwoColContactUsWithIllustrationFullForm.js";
 import ContactDetails from "components/cards/ThreeColContactDetails.js";
 
@@ -14,92 +11,40 @@ const Phone = tw.span`text-sm mt-0 block text-gray-500`;
 
 export default () => {
   return (
-    <AnimationRevealPage>
-      <Header />
+    <>
       <ContactUsForm />
       <ContactDetails
+      description="At our offices, we strive to create a collaborative and innovative environment. Our dedicated teams work tirelessly to ensure we meet our clients' needs and exceed their expectations. Each location is equipped with state-of-the-art facilities to support our mission of delivering excellence in service and solutions."
         cards={[
           {
-            title: "New York",
+            title: "Gurgaon",
             description: (
               <>
                 <Address>
-                  <AddressLine>40 Gates Court</AddressLine>
-                  <AddressLine>Endicott, NY 13760</AddressLine>
+                  <AddressLine>MedicalJi</AddressLine>
+                  <AddressLine>Street No 21, Krishna Kunj</AddressLine>
                 </Address>
-                <Email>contact@treact.com</Email>
-                <Phone>+1 (203) 991-6988</Phone>
+                <Email>admin@medicalji.com</Email>
+                <Phone>+91 8285482825</Phone>
               </>
             )
           },
           {
-            title: "Illinois",
+            title: "Gurgaon",
             description: (
               <>
                 <Address>
-                  <AddressLine>602 Annadale Drive</AddressLine>
-                  <AddressLine>Dekalb, IL 60115</AddressLine>
+                  <AddressLine>Medical Ji</AddressLine>
+                  <AddressLine>Wazirabad, Sector 52</AddressLine>
                 </Address>
-                <Email>contact@treact.com</Email>
-                <Phone>+1 (203) 991-6988</Phone>
+                <Email>admin@medicalji.com</Email>
+                <Phone>+91 8285482825</Phone>
               </>
             )
           },
-          {
-            title: "California",
-            description: (
-              <>
-                <Address>
-                  <AddressLine>96 NE. Delaware Lane</AddressLine>
-                  <AddressLine>Sacramento, CA 95820</AddressLine>
-                </Address>
-                <Email>contact@treact.com</Email>
-                <Phone>+1 (203) 991-6988</Phone>
-              </>
-            )
-          },
-          {
-            title: "Tennessee",
-            description: (
-              <>
-                <Address>
-                  <AddressLine>74 Peachtree Ave.</AddressLine>
-                  <AddressLine>Dyersburg, TN 38024</AddressLine>
-                </Address>
-                <Email>contact@treact.com</Email>
-                <Phone>+1 (203) 991-6988</Phone>
-              </>
-            )
-          },
-          {
-            title: "New Jersey",
-            description: (
-              <>
-                <Address>
-                  <AddressLine>8355 Summer Street</AddressLine>
-                  <AddressLine>Manchester, NJ 08759</AddressLine>
-                </Address>
-                <Email>contact@treact.com</Email>
-                <Phone>+1 (203) 991-6988</Phone>
-              </>
-            )
-          },
-          {
-            title: "Ohio",
-            description: (
-              <>
-                <Address>
-                  <AddressLine>7713 Snake Hill Ave.</AddressLine>
-                  <AddressLine>Piqua, OH 45356</AddressLine>
-                </Address>
-                <Email>contact@treact.com</Email>
-                <Phone>+1 (203) 991-6988</Phone>
-              </>
-            )
-          }
+          
         ]}
       />
-      <Footer />
-    </AnimationRevealPage>
+    </>
   );
 };
