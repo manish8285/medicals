@@ -56,14 +56,15 @@ export default ({
   const sendEmail=async()=>{
     setLoader(true);
     try{
-      await sendContactForm(contactData);
-      toast("Your query received")
-      toast({message:"your query received successfully !!! ",type:"success"})
+      const response =await sendContactForm(contactData);
+      if(response && !response.error){
+        toast("your query received successfully !!! ")
+      }else{
+        throw new Error("Oops something went wrong !!! ")
+      }
 
     }catch(error){
-      console.log('something went wrong')
-      console.log(error)
-      toast({message:"oops something went wrong !!! ",type:"error"})
+      toast(error.message);
     }
     setLoader(false);
   }
