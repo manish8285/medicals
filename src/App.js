@@ -125,7 +125,6 @@ export default function App() {
       <GlobalStyles />
       <ToastContainer />
       <Router>
-      {/* <AnimationRevealPage> */}
         <Routes >
           <Route element={<AppLayout />}>
           <Route path="/about" element={<AboutUs/>} />
@@ -135,10 +134,8 @@ export default function App() {
           <Route path="/terms-conditions" element={<TermsOfServicePage />} />
           <Route path="/blogs" element={<BlogIndexPage />} />
           <Route path="/" element={<LandingPage />} />
-
           </Route>
         </Routes >
-        {/* </AnimationRevealPage> */}
       </Router>
       
     </>
