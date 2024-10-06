@@ -22,7 +22,8 @@ export default () => {
         heading="Your Trusted Medical Aggregator"
         description="We are a team of professionals dedicated to bringing all local medical stores onto one convenient platform. With us, you can order your medicine online and have it delivered right to your doorstep, no need to visit multiple stores. We ensure you get the right medicine at the best price, delivered on time, while also addressing any questions or concerns you may have."
         buttonRounded={false}
-        primaryButtonText="See Portfolio"
+        primaryButtonText="Contact Us"
+        primaryButtonUrl="/contactus"
         imageSrc={storePic}
       />
       <MainFeature1

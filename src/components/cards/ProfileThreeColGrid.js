@@ -9,6 +9,7 @@ import { ReactComponent as TwitterIcon} from "images/twitter-icon.svg";
 import { ReactComponent as LinkedinIcon} from "images/linkedin-icon.svg";
 import { ReactComponent as GithubIcon } from "images/github-icon.svg";
 import manish from 'images/manishPic.png'
+import Deshraj from 'images/Deshraj.jpeg'
 
 const HeadingContainer = tw.div``
 const Heading = tw(SectionHeading)``
@@ -85,7 +86,7 @@ export default ({
       ],
     },
     {
-      imageSrc: "https://images.unsplash.com/photo-1517070208541-6ddc4d3efbcb?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&fit=facearea&facepad=2.95&w=512&h=512&q=80",
+      imageSrc: Deshraj,
       position: "COO & Network Manager",
       name: "Deshraj B.",
       links: [
